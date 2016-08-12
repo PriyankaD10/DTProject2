@@ -2,16 +2,23 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns:mvc="http://www.springframework.org/schema/mvc"
 xmlns:context="http://www.springframework.org/schema/context"
+xmlns:tx="http://www.springframework.org/schema/tx"
 xsi:schemaLocation="http://www.springframework.org/schema/beans
 					http://www.springframework.org/schema/beans/spring-beans.xsd 
 					http://www.springframework.org/schema/mvc
 		            http://www.springframework.org/schema/mvc/spring-mvc.xsd
                     http://www.springframework.org/schema/context 
-                    http://www.springframework.org/schema/context/spring-context.xsd">
+                    http://www.springframework.org/schema/context/spring-context.xsd
+                    http://www.springframework.org/schema/tx 
+                 	http://www.springframework.org/schema/tx/spring-tx.xsd">
 <mvc:annotation-driven/>
 <mvc:default-servlet-handler/>
- 
+<!--  <tx:annotation-driven/> --> 
+ <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+ 	
 	<context:component-scan base-package="com.niit.*" />
+	<context:component-scan base-package="com.niit.niittechtree.dao" />
+	<context:component-scan base-package="com.niit.niittechtree.model" />	
  	<mvc:resources mapping="/resources/images/**" location="/resources/images/" />
  	<mvc:resources mapping="/resources/assets/**" location="/resources/assets/" />
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -24,8 +31,12 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 	</bean>
 	
 	
-
+	<bean id="blogService" class="com.niit.niittechtree.dao.BlogService" />
+	<bean id="blogDao" class="com.niit.niittechtree.dao.BlogDAOImpl" />
 	
+	<!-- <bean id="userservice" class="service.UserService" />
+	<bean id="userdao" class="model.UserDAOImplement" />
+	 -->
 	
 	<!-- ================ -->
 	

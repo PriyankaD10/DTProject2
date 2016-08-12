@@ -16,10 +16,6 @@ public class HomeController {
 		
 		return "aboutus";
 	}
-	@RequestMapping("/blog")
-	public String getBlog(){
-		
-		return "blog";
-	}
+	
 	
 }
