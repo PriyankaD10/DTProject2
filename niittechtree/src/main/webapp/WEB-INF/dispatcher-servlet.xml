@@ -33,7 +33,8 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 	
 	<bean id="blogService" class="com.niit.niittechtree.dao.BlogService" />
 	<bean id="blogDao" class="com.niit.niittechtree.dao.BlogDAOImpl" />
-	
+	<bean id="userService" class="com.niit.niittechtree.dao.UserService" />
+	<bean id="userDao" class="com.niit.niittechtree.dao.UserDAOImpl" />
 	<!-- <bean id="userservice" class="service.UserService" />
 	<bean id="userdao" class="model.UserDAOImplement" />
 	 -->

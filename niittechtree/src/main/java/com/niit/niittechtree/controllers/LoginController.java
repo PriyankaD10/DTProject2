@@ -7,7 +7,19 @@ public class LoginController {
 
 	@RequestMapping("/login")
 	public String getIndex(){
-		
+		 
 		return "login";
+	}
+	
+	@RequestMapping("/userhome")
+	public String getUserHome(){
+		
+		return "userhome";
+	}
+	
+	@RequestMapping("/adminhome")
+	public String getAdminHome(){
+		
+		return "adminhome";
 	}
 }

@@ -77,10 +77,10 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="top-navbar-1">
 				<ul class="nav navbar-nav">
-					<li><a class="scroll-link" href="#top-content">NIIT</a></li>
+					<li><a class="scroll-link" href="index">NIIT</a></li>
 					<li><a class="scroll-link" href="index">Home</a></li>
 					<li><a class="scroll-link" href="aboutus">About Us</a></li>
-					<li><a class="scroll-link" href="#testimonials">Blogs</a></li>
+					<li><a class="scroll-link" href="#blog">Blogs</a></li>
 					<li><a class="scroll-link" href="register">Register</a></li>
 					<li><a class="scroll-link" href="login">Login</a></li>
 				</ul>
