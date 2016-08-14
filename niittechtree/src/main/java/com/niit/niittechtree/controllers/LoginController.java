@@ -28,7 +28,7 @@ public class LoginController {
 	
 	@RequestMapping("/userhome")
 	public String getUserHome(Model model){
-		//User activeUser = (User);
+		//User activeUser
 		Authentication authenticateduser=SecurityContextHolder.getContext().getAuthentication();
 		String username=authenticateduser.getName();
 		
@@ -36,6 +36,18 @@ public class LoginController {
 		model.addAttribute("userinfo", user);
 		return "userhome";
 	}
+	
+	@RequestMapping("/imageupload")
+	public String getImageUpload(){
+		
+		return "uploadimage";
+	}
+	@RequestMapping("/saveimage")
+	public String saveImage(){
+		
+		return "userhome";
+	}
+	
 	
 	@RequestMapping("/adminhome")
 	public String getAdminHome(){

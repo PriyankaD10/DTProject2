@@ -30,7 +30,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 		</property>
 	</bean>
 	
-	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name="maxUploadSize" value="100000"></property>
+	</bean>
 	<bean id="blogService" class="com.niit.niittechtree.dao.BlogService" />
 	<bean id="blogDao" class="com.niit.niittechtree.dao.BlogDAOImpl" />
 	<bean id="userService" class="com.niit.niittechtree.dao.UserService" />

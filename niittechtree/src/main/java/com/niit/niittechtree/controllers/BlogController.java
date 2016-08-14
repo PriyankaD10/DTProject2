@@ -3,6 +3,8 @@ package com.niit.niittechtree.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,8 +29,10 @@ public class BlogController {
 	@RequestMapping("/saveblog")
 	public String postBlog(@ModelAttribute("blog") Blog blog) {
 		if (blog.getId() == 0) {
+			Authentication authenticateduser=SecurityContextHolder.getContext().getAuthentication();
+			String username=authenticateduser.getName();
 			blog.setBlogdate(new java.util.Date());
-			blog.setBlogusername("user01");
+			blog.setBlogusername(username);
 			blogService.insert(blog);
 			return "redirect:/blog";
 		} else {
