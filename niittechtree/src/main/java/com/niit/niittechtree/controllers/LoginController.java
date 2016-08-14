@@ -1,10 +1,25 @@
 package com.niit.niittechtree.controllers;
 
+import java.security.Principal;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.niit.niittechtree.dao.UserService;
+import com.niit.niittechtree.model.User;
 @Controller
 public class LoginController {
 
+
+	@Autowired
+	UserService userService;
+	
 	@RequestMapping("/login")
 	public String getIndex(){
 		 
@@ -12,8 +27,13 @@ public class LoginController {
 	}
 	
 	@RequestMapping("/userhome")
-	public String getUserHome(){
+	public String getUserHome(Model model){
+		//User activeUser = (User);
+		Authentication authenticateduser=SecurityContextHolder.getContext().getAuthentication();
+		String username=authenticateduser.getName();
 		
+		User user=userService.getUserByUsername(username);
+		model.addAttribute("userinfo", user);
 		return "userhome";
 	}
 	
@@ -21,5 +41,16 @@ public class LoginController {
 	public String getAdminHome(){
 		
 		return "adminhome";
+	}
+	
+	@RequestMapping("/403")
+	public String getErrorPage(){
+		
+		return "403";
+	}
+	@RequestMapping("/logoutsuccess")
+	public String getLogoutPage(){
+		
+		return "logoutsucess";
 	}
 }

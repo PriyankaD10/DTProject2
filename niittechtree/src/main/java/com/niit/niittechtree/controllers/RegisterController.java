@@ -36,7 +36,7 @@ public class RegisterController {
 	else{
 		newuser.setEnabled(1);
 		userService.insert(newuser);
-		page="usersuccess";
+		page="registersuccess";
 	}
 		
 		return page;

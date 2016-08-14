@@ -4,14 +4,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security
       http://www.springframework.org/schema/security/spring-security.xsd
       http://www.springframework.org/schema/beans
-      http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
 		
 		<http use-expressions="true">
-		<csrf disabled="false"/>
+		<csrf disabled="true"/>
 		<intercept-url pattern="/postblog" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
 		
 		<intercept-url pattern="/blog**" access="hasRole('ROLE_USER')" />
-		<intercept-url pattern="/userhome**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/userhome" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
 		<intercept-url pattern="/adminblog**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/adminhome**" access="hasRole('ROLE_ADMIN')" />
 		<!-- <intercept-url pattern="/other/**" access="isAuthenticated()" /> -->
@@ -19,7 +19,7 @@
 		<access-denied-handler error-page="/403" />
 
 		<form-login login-page='/login' login-processing-url="/perform_login"
-			default-target-url="/userhome" always-use-default-target="false"
+			default-target-url="/userhome" always-use-default-target="true"
 			authentication-failure-url="/403" />
 
 		<logout logout-url="/logout" logout-success-url="/logoutSuccessful"
@@ -30,7 +30,7 @@
 	<authentication-manager>
 	<authentication-provider>
             <jdbc-user-service data-source-ref="dataSource"
-                users-by-username-query="select username,password, enabled from user where username=?"
+                users-by-username-query="select username,password, enabled from users where username=?"
                 authorities-by-username-query="select username, concat('ROLE_',role) user_role from user_roles where username=?" />
         </authentication-provider>
      </authentication-manager>
