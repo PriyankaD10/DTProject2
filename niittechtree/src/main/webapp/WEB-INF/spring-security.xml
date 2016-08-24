@@ -9,8 +9,11 @@
 		<http use-expressions="true">
 		<csrf disabled="true"/>
 		<intercept-url pattern="/postblog" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
+		<intercept-url pattern="/postforum" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
 		
 		<intercept-url pattern="/blog**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/forum**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
+		
 		<intercept-url pattern="/userhome" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
 		<intercept-url pattern="/adminblog**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/adminhome**" access="hasRole('ROLE_ADMIN')" />

@@ -18,7 +18,7 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="form-bottom-right" width="60%">
-						<form action="saveimage" method='POST' enctype="multipart/formdata" class="registration-form">
+						<form action="saveimage" method='POST' enctype="multipart/form-data" class="registration-form" model="image">
 							<div class="form-group" height="100" width="200">
 							
 								<label class="sr-only" for="file">Choose Photo</label> <input

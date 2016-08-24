@@ -35,11 +35,13 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 	</bean>
 	<bean id="blogService" class="com.niit.niittechtree.dao.BlogService" />
 	<bean id="blogDao" class="com.niit.niittechtree.dao.BlogDAOImpl" />
+	<bean id="forumService" class="com.niit.niittechtree.dao.ForumService" />
+	<bean id="forumDao" class="com.niit.niittechtree.dao.ForumDAOImpl" />
 	<bean id="userService" class="com.niit.niittechtree.dao.UserService" />
 	<bean id="userDao" class="com.niit.niittechtree.dao.UserDAOImpl" />
-	<!-- <bean id="userservice" class="service.UserService" />
-	<bean id="userdao" class="model.UserDAOImplement" />
-	 -->
+	<bean id="profileImageService" class="com.niit.niittechtree.dao.ProfileImageService" />
+	<bean id="profileImageDao" class="com.niit.niittechtree.dao.ProfileImageDAOImpl" />
+	 
 	
 	<!-- ================ -->
 	

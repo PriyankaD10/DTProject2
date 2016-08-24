@@ -56,7 +56,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
-				<img src="resources/images/profile.jpg" alt="profile image"
+			 
+				<img src="resources/images/<c:out value="${pageContext.request.userPrincipal.name}" />.jpg" alt="profile image"
 					height="100" width="100" /><br>
 				<p>
 					<a href="imageupload">Upload Photo</a>
@@ -95,17 +96,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
-				<a href="blog" class="btn btn-link"
+			<table class="table">
+			<tr>
+				<td><a href="blog" class="btn btn-link"
 					style="background-color: blue; color: white;">Blog</a>
-			</div>
-			<div class="col-sm-4">
-				<a href="forum" class="btn btn-link"
-					style="background-color: blue; color: white;"> Discussion Forum</a>
-			</div>
-			<div class="col-sm-4">
-				<a href="#" class="btn btn-link"
+				</td>
+			
+				<td><a href="forum" class="btn btn-link"
+					style="background-color: blue; color: white;">Wall</a>
+			</td>
+			
+				<td><a href="#" class="btn btn-link"
 					style="background-color: blue; color: white;">Chat</a>
-			</div>
+			</td>
+			</tr>
+		</table>
 		</div>
 
 	</div>
